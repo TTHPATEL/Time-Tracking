@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./dashboard.module.css";
 import userProfile from "../images/image-user.png";
 import Info_card from "./Info_card";
@@ -8,20 +8,29 @@ import studyIcon from "../images/icon-study.svg";
 import exerciseIcon from "../images/icon-exercise.svg";
 import socialIcon from "../images/icon-social.svg";
 import selfCareIcon from "../images/icon-self-care.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaUserEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { deleteUser } from "../redux/UserDataSlice";
+import axios from "axios";
+import { url } from "../../utils";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const userData = useSelector((store) => store.UserData);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [selectedUserId, setSelectedUserId] = useState(
     userData[userData.length - 1]?.id || null
   );
   const [timeframe, setTimeframe] = useState("daily");
-  console.log(userData);
-  console.log(selectedUserId);
+
+  // console.log(userData);
+  // console.log(selectedUserId);
   const currentUser = userData?.find((user) => user.id === selectedUserId);
-  console.log(currentUser);
+  // console.log(currentUser);
+
   let themeMap = [
     {
       title: "Work",
@@ -58,7 +67,25 @@ function Dashboard() {
   function wanttoseeuser(e) {
     setSelectedUserId(e.target.value);
   }
+  async function onhandleDeleteUser(id) {
+    let res = await axios.delete(`${url}/${id}`);
+    if (res.status === 200) {
+      toast.success("User deleted");
+    }
+    // console.log(res.data);
+    dispatch(deleteUser(res.data.id));
 
+    const remainingUsers = userData.filter((user) => user.id !== id);
+    setSelectedUserId(
+      remainingUsers.length > 0
+        ? remainingUsers[remainingUsers.length - 1].id
+        : null
+    );
+  }
+  async function onhandleEditUser(id) {
+    navigate(`/create-user/?userId=${id}`);
+    // console.log(id);
+  }
   return (
     <div className={style.body_tag}>
       <div className={style.card}>
@@ -88,11 +115,17 @@ function Dashboard() {
               </div>
               <div className={style.username}>
                 <p>Report for</p>
-                <h1>{currentUser.name || "Jeremy Robson"}</h1>
+                <h1>{currentUser?.name || "Jeremy Robson"}</h1>
               </div>
               <div className={style.icon_div}>
-                <FaUserEdit id={style.editIcon} />
-                <MdDelete id={style.deleteIcon} />
+                <FaUserEdit
+                  id={style.editIcon}
+                  onClick={() => onhandleEditUser(currentUser.id)}
+                />
+                <MdDelete
+                  id={style.deleteIcon}
+                  onClick={() => onhandleDeleteUser(currentUser.id)}
+                />
               </div>
             </div>
             <div className={style.l_bottom_container}>

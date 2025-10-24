@@ -12,10 +12,10 @@ const useFetchUserData = () => {
     const fetchUserData = async () => {
       try {
         let res = await axios.get(url);
-        console.log(res.data);
+        // console.log(res.data);
         dispatch(setUser(res.data));
       } catch (err) {
-        console.log("Error fetching user data :", err);
+        // console.log("Error fetching user data :", err);
       } finally {
         setLoading(false);
       }

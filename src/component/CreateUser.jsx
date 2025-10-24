@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./createuser.module.css";
-import { createUser, setUser } from "../redux/UserDataSlice";
-import { useEffect, useRef } from "react";
+import { createUser, updateUser } from "../redux/UserDataSlice";
+import { useEffect, useId, useRef } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { url } from "../../utils";
-import useFetchUserData from "../hooks/useFetchUserData";
 
 function CreateUser() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const userId = searchParams.get("userId");
+  const allUser = useSelector((store) => store.UserData);
 
   const nameRef = useRef();
   const workRef = useRef();
@@ -23,15 +25,49 @@ function CreateUser() {
   const userData = useSelector((store) => store.UserData);
 
   useEffect(() => {
-    console.log(userData);
+    // console.log(userData);
+    if (!userId) {
+      nameRef.current.value = "";
+      workRef.current.value = "";
+      playRef.current.value = "";
+      studyRef.current.value = "";
+      exerciseRef.current.value = "";
+      socialRef.current.value = "";
+      selfCareRef.current.value = "";
+      return;
+    }
+    const currentUser = userData?.find((i) => i.id === userId);
+    if (currentUser) {
+      nameRef.current.value = currentUser.name;
+      const refMap = {
+        Work: workRef,
+        Play: playRef,
+        Study: studyRef,
+        Exercise: exerciseRef,
+        Social: socialRef,
+        Selfcare: selfCareRef,
+      };
+      currentUser.info.forEach((i) => {
+        if (refMap[i.title]) {
+          refMap[i.title].current.value = i.timeframes.daily.current;
+        }
+      });
+    }
   }, [userData]);
 
   async function handleOnCreateUser(formData) {
-    let res = await axios.post(url, formData);
-    console.log(res.data);
-    dispatch(createUser(res.data));
-    toast.success("User created");
-    navigate("/dashboard");
+    // console.log(formData);
+    if (userId) {
+      let res = await axios.put(`${url}/${userId}`, formData);
+      // console.log(res.data);
+      dispatch(updateUser(res.data));
+      navigate("/dashboard");
+    } else {
+      let res = await axios.post(url, formData);
+      // console.log(res.data);
+      dispatch(createUser(res.data));
+      navigate("/dashboard");
+    }
   }
 
   function handleOnSubmit(e) {
@@ -153,7 +189,7 @@ function CreateUser() {
     };
 
     handleOnCreateUser(data);
-    console.log("Submited", nameRef.current.value);
+    // console.log("Submited", nameRef.current.value);
   }
 
   return (
@@ -256,7 +292,9 @@ function CreateUser() {
             </div>
           </div>
           <div className={style.button_container}>
-            <button type="submit">Submit</button>
+            <button type="submit">
+              {userId ? `Update user` : `Create user`}
+            </button>
           </div>
         </form>
       </div>

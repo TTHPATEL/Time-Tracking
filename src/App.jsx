@@ -7,7 +7,7 @@ function App() {
   const dispatch = useDispatch();
   function handleonCreateUser() {
     dispatch(createUser());
-    console.log(UserData);
+    // console.log(UserData);
   }
   return (
     <>

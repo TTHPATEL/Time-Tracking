@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 let initialState = [
   {
     name: "Sample User",
@@ -115,14 +116,26 @@ export const UserDataSlice = createSlice({
   initialState,
   reducers: {
     createUser: (state, action) => {
-      console.log("CreateUser called");
       state.push(action.payload);
+      toast.success("User created");
     },
     setUser: (state, action) => {
-      // const newUser = action.payload.filter((i) => !i.id === state.id);
       return action.payload;
+    },
+    updateUser: (state, action) => {
+      const updatedUser = action.payload;
+      const index = state.findIndex((i) => i.id === updatedUser.id);
+      if (index >= 0) {
+        state[index] = updatedUser;
+        toast.success("User updated");
+      }
+    },
+    deleteUser: (state, action) => {
+      const updatedData = state.filter((i) => i.id !== action.payload);
+      return updatedData;
     },
   },
 });
-export const { createUser, setUser } = UserDataSlice.actions;
+export const { createUser, setUser, updateUser, deleteUser } =
+  UserDataSlice.actions;
 export default UserDataSlice.reducer;

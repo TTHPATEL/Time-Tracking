@@ -1,8 +1,8 @@
 import React, { use, useEffect } from "react";
 import dotImg from "../images/icon-ellipsis.svg";
 function Info_card({ style, bgdata, matchInfo, timeframe }) {
-  const current = matchInfo.timeframes[timeframe].current;
-  const previous = matchInfo.timeframes[timeframe].previous;
+  const current = matchInfo?.timeframes[timeframe].current;
+  const previous = matchInfo?.timeframes[timeframe].previous;
   const period = timeframe.charAt(0).toUpperCase() + timeframe.slice(1);
   return (
     <div

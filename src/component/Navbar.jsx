@@ -22,14 +22,7 @@ function Navbar() {
           >
             Home
           </NavLink> */}
-          <NavLink
-            to="/create-user"
-            className={({ isActive }) =>
-              `${style.navlink} ${isActive ? style["act-header"] : ""}`
-            }
-          >
-            Add user
-          </NavLink>
+
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
@@ -37,6 +30,14 @@ function Navbar() {
             }
           >
             Dashboard
+          </NavLink>
+          <NavLink
+            to="/create-user"
+            className={({ isActive }) =>
+              `${style.navlink} ${isActive ? style["act-header"] : ""}`
+            }
+          >
+            Add user
           </NavLink>
         </div>
       </div>
