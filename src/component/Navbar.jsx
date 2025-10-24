@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { isAction } from "@reduxjs/toolkit";
 
 function Navbar() {
@@ -8,17 +8,20 @@ function Navbar() {
     <>
       <div className={style.navbody}>
         <div className={style.lside}>
-          <h4>Time Tracker</h4>
+          <Link to="/" className={style.logoLink}>
+            <h4>Time Tracker</h4>
+          </Link>
         </div>
         <div className={style.rside}>
-          <NavLink
+          {/* <NavLink
             to="/"
+            id={style.homeLink}
             className={({ isActive }) =>
               `${style.navlink} ${isActive ? style["act-header"] : ""}`
             }
           >
             Home
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/create-user"
             className={({ isActive }) =>

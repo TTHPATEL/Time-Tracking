@@ -19,9 +19,31 @@
   font-weight: 500;
   transition: color 0.15s ease;
 }
+.logoLink {
+  color: white;
+  text-decoration: none;
+}
 .navlink:hover {
   color: hsl(220, 90%, 70%);
 }
+
 .act-header {
   color: chocolate;
+}
+
+@media (max-width: 750px) {
+  .rside {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .navbody {
+    padding-inline: 0.5em;
+  }
+  .navlink {
+    margin: 0 0.5rem;
+  }
+  #homeLink {
+    display: none;
+  }
 }

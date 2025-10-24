@@ -26,9 +26,7 @@
   background-color: rgb(210, 105, 30, 0.9);
   transition: 0.2s ease;
 }
-form {
-  /* width: 100%; */
-}
+
 .inputfield_div {
   display: flex;
   flex-direction: column;
@@ -61,7 +59,7 @@ form {
   justify-content: space-around;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   .form_columns {
     flex-direction: column;
     gap: 0;
@@ -69,5 +67,8 @@ form {
   .body_tag {
     align-items: flex-start;
     height: 120vh;
+  }
+  form {
+    padding-block: 1.5em;
   }
 }

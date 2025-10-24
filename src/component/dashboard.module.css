@@ -100,7 +100,6 @@
   gap: 2em;
 }
 .info_card {
-  /* margin-left: 1.8em; */
   border-radius: var(--border_radius_all);
   overflow: hidden;
   height: 230px;
@@ -180,4 +179,62 @@
 }
 
 @media (max-width: 750px) {
+  .card {
+    padding-inline: 2em;
+    padding-block: 2em;
+  }
+  .cardUpper {
+    margin-top: 0em;
+  }
+  .left_container {
+    width: 100%;
+  }
+  .l_top_container {
+    display: flex;
+    gap: 1em;
+  }
+  .username {
+    padding-top: 0em;
+  }
+  .username h1 {
+    max-width: none;
+  }
+  .l_bottom_container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .cardLower {
+    flex-direction: column;
+    align-items: center;
+  }
+  .right_container {
+    width: 100%;
+  }
+
+  .info_card {
+    width: 100%;
+    height: 130px;
+  }
+  .title_div img {
+    width: 6%;
+  }
+  .hour_div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5em;
+  }
+}
+
+@media (max-width: 426px) {
+  .username {
+    padding-top: 0.5em;
+  }
+  .username h1 {
+    font-size: 2em;
+  }
+  #hour {
+    font-weight: 300;
+    font-size: 2em;
+  }
 }
