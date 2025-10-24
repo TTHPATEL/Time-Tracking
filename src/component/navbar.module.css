@@ -1,0 +1,27 @@
+.navbody {
+  background-color: hsl(226, 43%, 15%);
+  color: white;
+  width: 100%;
+  font-size: 1.1rem;
+  height: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2em;
+}
+.navlink {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.navlink:hover {
+  color: hsl(220, 90%, 70%);
+}
+.act-header {
+  color: chocolate;
+}
