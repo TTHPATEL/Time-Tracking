@@ -2,36 +2,42 @@
   --border_radius_all: 0.8em;
   --purpole_card: hsl(235, 46%, 20%);
 }
+
 .body_tag {
   background-color: hsl(226, 43%, 10%);
   color: white;
-  height: calc(100vh - 50px);
-  width: 100vw;
+  min-height: calc(100vh - 50px);
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 .card {
   /* height: 31em; */
   border-radius: var(--border_radius_all);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 2em;
   overflow: hidden;
   /* padding-inline: 10em; */
-  max-width: 80%;
+  /* max-width: 80%; */
 }
 
 .cardLower {
   display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 .left_container {
   background-color: hsl(235, 46%, 20%);
   overflow: hidden;
-  /* width: 24%; */
+  width: 20%;
 }
 .l_top_container {
   background-color: hsl(246, 80%, 60%);
   border-radius: var(--border_radius_all);
-  padding: 2em 0em 2em 2em;
+  padding: 2em 2em 2em 2em;
   overflow: hidden;
   height: 70%;
 }
@@ -83,7 +89,7 @@
 }
 
 .right_container {
-  width: 76%;
+  width: 67%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
