@@ -1,0 +1,25 @@
+.body_tag {
+  background-color: hsl(226, 43%, 10%);
+  color: white;
+  height: calc(100vh);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+}
+.body_tag a {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: white;
+  border: 0.5px solid white;
+  padding: 0.4em 0.7em 0.4em 0.7em;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+}
+.body_tag a:hover {
+  background-color: rgb(210, 105, 30, 0.9);
+  transition: 0.2s ease;
+}

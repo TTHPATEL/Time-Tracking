@@ -1,0 +1,169 @@
+:root {
+  --border_radius_all: 0.8em;
+  --purpole_card: hsl(235, 46%, 20%);
+}
+.body_tag {
+  background-color: hsl(226, 43%, 10%);
+  color: white;
+  height: calc(100vh - 50px);
+  width: 100vw;
+}
+.card {
+  /* height: 31em; */
+  border-radius: var(--border_radius_all);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  overflow: hidden;
+  /* padding-inline: 10em; */
+  max-width: 80%;
+}
+
+.cardLower {
+  display: flex;
+}
+.left_container {
+  background-color: hsl(235, 46%, 20%);
+  overflow: hidden;
+  /* width: 24%; */
+}
+.l_top_container {
+  background-color: hsl(246, 80%, 60%);
+  border-radius: var(--border_radius_all);
+  padding: 2em 0em 2em 2em;
+  overflow: hidden;
+  height: 70%;
+}
+
+.profile_div {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 3px solid white;
+  overflow: hidden;
+}
+.profile_div img {
+  width: 100%;
+  height: 100%;
+}
+
+.username {
+  padding-top: 2em;
+}
+.username p {
+  font-weight: 300;
+  color: rgb(255, 255, 255, 0.7);
+}
+.username h1 {
+  font-weight: 300;
+  font-size: 3em;
+  max-width: 5em;
+}
+.l_bottom_container {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+  padding: 1em 2em 1em 2em;
+}
+.l_bottom_container button {
+  background-color: transparent;
+  border: none;
+  color: hsl(235, 45%, 61%);
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.l_bottom_container button:hover,
+.l_bottom_container button.active {
+  color: white;
+  transition: 0.18s ease;
+}
+
+.right_container {
+  width: 76%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+.info_card {
+  margin-left: 1.8em;
+  border-radius: var(--border_radius_all);
+  overflow: hidden;
+  height: 230px;
+  width: 230px;
+}
+.t_info_card {
+  background-repeat: no-repeat;
+  background-position: top 0px right 10px;
+  background-size: 30%;
+  height: 20%;
+}
+.b_info_card {
+  height: 80%;
+  background-color: var(--purpole_card);
+  border-radius: var(--border_radius_all);
+  padding: 1em 1.5em 0em 1.5em;
+}
+.b_info_card:hover {
+  cursor: pointer;
+  background-color: hsl(236, 41%, 29%);
+  transition: 0.2s ease;
+}
+
+.title_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title_div h4 {
+  font-weight: 300;
+}
+
+.title_div img {
+  width: 10%;
+  height: 100%;
+  cursor: pointer;
+}
+.title_div img:hover {
+  filter: brightness(0) invert(1);
+}
+#hour {
+  font-weight: 300;
+  font-size: 2.8em;
+}
+
+.hour_div {
+  padding-top: 1.7em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.hour_div h1 {
+  font-weight: 300;
+}
+.hour_div p {
+  color: hsl(235, 48%, 70%);
+  font-size: 0.8em;
+}
+
+.cardUpper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.cardUpper select {
+  cursor: pointer;
+  background-color: hsl(226, 43%, 15%);
+  color: white;
+  height: 2em;
+  border: 2px solid rgb(210, 105, 30, 0.5);
+  outline: none;
+  padding-inline: 1.5em;
+}
