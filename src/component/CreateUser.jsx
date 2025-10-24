@@ -254,7 +254,7 @@ function CreateUser() {
                 <label htmlFor="exercise">Exercise</label>
                 <input
                   type="number"
-                  placeholder="Enter  per day exercise hour"
+                  placeholder="Enter per day exercise hour"
                   required
                   id="exercise"
                   min="0"
@@ -267,7 +267,7 @@ function CreateUser() {
                 <label htmlFor="social">Social</label>
                 <input
                   type="number"
-                  placeholder="Enter  per day social hour"
+                  placeholder="Enter per day social hour"
                   required
                   id="social"
                   min="0"
@@ -280,7 +280,7 @@ function CreateUser() {
                 <label htmlFor="Selfcare">Self Care</label>
                 <input
                   type="number"
-                  placeholder="Enter  per day self care hour"
+                  placeholder="Enter per day self care hour"
                   required
                   id="Selfcare"
                   min="0"
