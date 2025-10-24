@@ -9,7 +9,9 @@ import exerciseIcon from "../images/icon-exercise.svg";
 import socialIcon from "../images/icon-social.svg";
 import selfCareIcon from "../images/icon-self-care.svg";
 import { useSelector } from "react-redux";
-import useFetchUserData from "../hooks/useFetchUserData";
+import { FaUserEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+
 function Dashboard() {
   const userData = useSelector((store) => store.UserData);
   const [selectedUserId, setSelectedUserId] = useState(
@@ -87,6 +89,10 @@ function Dashboard() {
               <div className={style.username}>
                 <p>Report for</p>
                 <h1>{currentUser.name || "Jeremy Robson"}</h1>
+              </div>
+              <div className={style.icon_div}>
+                <FaUserEdit id={style.editIcon} />
+                <MdDelete id={style.deleteIcon} />
               </div>
             </div>
             <div className={style.l_bottom_container}>
