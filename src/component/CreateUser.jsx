@@ -9,7 +9,6 @@ import { url } from "../../utils";
 import useFetchUserData from "../hooks/useFetchUserData";
 
 function CreateUser() {
-  useFetchUserData();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -156,6 +155,7 @@ function CreateUser() {
     handleOnCreateUser(data);
     console.log("Submited", nameRef.current.value);
   }
+
   return (
     <>
       <div className={style.body_tag}>

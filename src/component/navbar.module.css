@@ -1,3 +1,7 @@
+:root {
+  --active_color: #ff3d00;
+}
+
 .navbody {
   background-color: hsl(226, 43%, 15%);
   color: white;
